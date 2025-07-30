@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Projects - Figma Static Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Inter:700&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #FFFFFF;
+      width: 100%;
+      height: 100%;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .container {
+      width: 100%;
+      max-width: 1920px;
+      min-width: 320px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      box-sizing: border-box;
+      padding: 3vw 4vw 3vw 4vw;
+    }
+    .header {
+      width: 100%;
+      min-height: 60px;
+      height: 7vh;
+      max-height: 69px;
+      background: #FE4848;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      flex-shrink: 0;
+      padding: 0 3vw;
+      box-sizing: border-box;
+      position: relative;
+    }
+    .header-title {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    .profile-page {
+      font-family: 'Inter', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 2.25rem;
+      color: #000;
+      background: transparent;
+      margin-left: auto;
+      margin-right: 0;
+      align-self: flex-start;
+      margin-top: 0.5vh;
+      margin-bottom: 0.5vh;
+      text-align: right;
+      line-height: 1.2;
+      padding: 0;
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .profile-page:hover,
+    .profile-page:focus {
+      color: #333;
+      text-decoration: underline;
+      outline: none;
+    }
+    .body {
+      width: 100%;
+      flex: 1 1 auto;
+      background: #A7F99E;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 1.5rem;
+      color: #222;
+      min-height: 200px;
+      padding: 0;
+      position: relative;
+    }
+    .main-content {
+      width: 100%;
+      max-width: 1713px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 6vw;
+      margin-top: 7vh;
+      margin-bottom: 5vh;
+      flex-wrap: wrap;
+    }
+    .column {
+      flex: 1 1 350px;
+      min-width: 320px;
+      max-width: 759px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 0 1vw;
+    }
+    .section-title {
+      font-family: 'Inter', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 2.25rem;
+      line-height: 1.2;
+      color: #000;
+      margin-left: 0;
+      margin-bottom: 2vh;
+      margin-top: 1vh;
+      text-align: left;
+    }
+    .card {
+      background: #D9D9D9;
+      border-radius: 8px;
+      width: 100%;
+      height: 40vh;
+      max-height: 503px;
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      margin-bottom: 3vh;
+      margin-top: 1vh;
+      padding: 2vw 2vw;
+    }
+    .footer {
+      width: 100%;
+      min-height: 50px;
+      height: 7vh;
+      max-height: 77px;
+      background: #50AFE9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      flex-shrink: 0;
+    }
+    @media (max-width: 1200px) {
+      .container {
+        padding: 2vw 2vw 2vw 2vw;
+      }
+      .main-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 4vh;
+        margin-top: 5vh;
+        margin-bottom: 3vh;
+      }
+      .column {
+        max-width: 100%;
+        width: 90vw;
+        margin: 0 0.5vw;
+      }
+      .card {
+        height: 30vh;
+        min-height: 120px;
+        padding: 3vw 2vw;
+      }
+    }
+    @media (max-width: 900px) {
+      .container {
+        padding: 1vw 1vw 1vw 1vw;
+      }
+      .header, .footer {
+        font-size: 1.2rem;
+        min-height: 40px;
+        height: 8vw;
+        max-height: 60px;
+      }
+      .body {
+        font-size: 1rem;
+        min-height: 120px;
+      }
+      .section-title, .profile-page {
+        font-size: 1.3rem;
+      }
+      .card {
+        font-size: 1rem;
+        min-height: 80px;
+        padding: 2vw 1vw;
+      }
+    }
+    @media (max-width: 600px) {
+      .container {
+        min-width: 0;
+        padding: 0.5vw 0.5vw 0.5vw 0.5vw;
+      }
+      .header, .footer {
+        font-size: 1rem;
+        min-height: 32px;
+        height: 10vw;
+        max-height: 48px;
+      }
+      .body {
+        font-size: 0.9rem;
+        min-height: 80px;
+      }
+      .section-title, .profile-page {
+        font-size: 1.1rem;
+      }
+      .card {
+        font-size: 0.9rem;
+        min-height: 40px;
+        padding: 1vw 0.5vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <span class="header-title">Header</span>
+      <a
+        class="profile-page"
+        href="profile.html"
+      >Profile Page</a>
+    </div>
+    <div class="body">
+      <div class="main-content">
+        <div class="column">
+          <div class="section-title">Products</div>
+          <div class="card"></div>
+        </div>
+        <div class="column">
+          <div class="section-title">Top Picks</div>
+          <div class="card"></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">Footer</div>
+  </div>
+</body>
+</html>
