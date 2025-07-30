@@ -2,18 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Projects - Figma Static Site</title>
+  <title>Profile Page - Modern Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css?family=Inter:700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Inter:700,400|Poppins:400,600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #FE4848;
+      --secondary: #50AFE9;
+      --accent: #A7F99E;
+      --bg: #f7fafd;
+      --card-bg: #fff;
+      --card-shadow: 0 4px 32px rgba(80, 175, 233, 0.08), 0 1.5px 6px rgba(0,0,0,0.03);
+      --radius: 18px;
+      --transition: 0.2s cubic-bezier(.4,0,.2,1);
+    }
     html, body {
       margin: 0;
       padding: 0;
-      background: #FFFFFF;
+      background: var(--bg);
       width: 100%;
-      height: 100%;
       min-height: 100vh;
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', 'Inter', Arial, sans-serif;
+      color: #222;
     }
     body {
       min-height: 100vh;
@@ -24,149 +34,179 @@
     }
     .container {
       width: 100%;
-      max-width: 1920px;
+      max-width: 1200px;
       min-width: 320px;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       margin: 0 auto;
       box-sizing: border-box;
-      padding: 3vw 4vw 3vw 4vw;
+      padding: 3vw 2vw 3vw 2vw;
     }
     .header {
       width: 100%;
-      min-height: 60px;
-      height: 7vh;
-      max-height: 69px;
-      background: #FE4848;
+      min-height: 64px;
+      background: linear-gradient(90deg, var(--primary) 60%, var(--secondary) 100%);
       display: flex;
       align-items: center;
       justify-content: space-between;
       color: #fff;
       font-size: 2rem;
-      font-weight: bold;
-      letter-spacing: 2px;
-      flex-shrink: 0;
-      padding: 0 3vw;
-      box-sizing: border-box;
-      position: relative;
+      font-weight: 600;
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
+      padding: 0 2vw;
+      margin-bottom: 3vh;
+      margin-top: 1vh;
+      transition: box-shadow var(--transition);
     }
     .header-title {
-      color: #fff;
+      font-family: 'Poppins', 'Inter', Arial, sans-serif;
+      font-weight: 600;
       font-size: 2rem;
-      font-weight: bold;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
+      color: #fff;
     }
     .profile-page {
       font-family: 'Inter', Arial, sans-serif;
       font-weight: 700;
-      font-size: 2.25rem;
-      color: #000;
-      background: transparent;
+      font-size: 1.25rem;
+      color: #fff;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 0.5em 1.2em;
       margin-left: auto;
       margin-right: 0;
-      align-self: flex-start;
-      margin-top: 0.5vh;
-      margin-bottom: 0.5vh;
       text-align: right;
-      line-height: 1.2;
-      padding: 0;
       text-decoration: none;
       cursor: pointer;
-      transition: color 0.2s;
+      transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+      box-shadow: 0 1px 4px rgba(80, 175, 233, 0.08);
+      outline: none;
+      border: none;
+      display: inline-block;
     }
     .profile-page:hover,
     .profile-page:focus {
-      color: #333;
-      text-decoration: underline;
-      outline: none;
+      background: #fff;
+      color: var(--primary);
+      box-shadow: 0 2px 12px rgba(80, 175, 233, 0.15);
+      text-decoration: none;
     }
     .body {
       width: 100%;
       flex: 1 1 auto;
-      background: #A7F99E;
+      background: var(--accent);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      font-size: 1.5rem;
-      color: #222;
+      font-size: 1.2rem;
       min-height: 200px;
-      padding: 0;
-      position: relative;
+      padding: 2vw 0;
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
+      margin-bottom: 3vh;
+      transition: box-shadow var(--transition);
     }
     .main-content {
       width: 100%;
-      max-width: 1713px;
+      max-width: 1000px;
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: flex-start;
-      gap: 6vw;
-      margin-top: 7vh;
-      margin-bottom: 5vh;
+      gap: 3vw;
+      margin-top: 3vh;
+      margin-bottom: 2vh;
       flex-wrap: wrap;
     }
     .column {
-      flex: 1 1 350px;
-      min-width: 320px;
-      max-width: 759px;
+      flex: 1 1 320px;
+      min-width: 260px;
+      max-width: 480px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      margin: 0 1vw;
+      margin: 0 0.5vw;
     }
     .section-title {
-      font-family: 'Inter', Arial, sans-serif;
-      font-weight: 700;
-      font-size: 2.25rem;
-      line-height: 1.2;
-      color: #000;
-      margin-left: 0;
-      margin-bottom: 2vh;
-      margin-top: 1vh;
+      font-family: 'Poppins', 'Inter', Arial, sans-serif;
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 1.2vh;
+      margin-top: 0.5vh;
       text-align: left;
+      letter-spacing: 0.5px;
     }
     .card {
-      background: #D9D9D9;
-      border-radius: 8px;
+      background: var(--card-bg);
+      border-radius: var(--radius);
       width: 100%;
-      height: 40vh;
-      max-height: 503px;
       min-height: 180px;
+      box-shadow: var(--card-shadow);
       display: flex;
       align-items: center;
       justify-content: center;
       box-sizing: border-box;
-      margin-bottom: 3vh;
-      margin-top: 1vh;
+      margin-bottom: 2vh;
+      margin-top: 0.5vh;
       padding: 2vw 2vw;
+      font-size: 1.1rem;
+      color: #444;
+      transition: box-shadow var(--transition), transform var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, var(--secondary) 0%, transparent 100%);
+      opacity: 0.06;
+      z-index: 0;
+      border-radius: var(--radius);
+      pointer-events: none;
+    }
+    .card:hover, .card:focus-within {
+      box-shadow: 0 8px 32px rgba(80, 175, 233, 0.18);
+      transform: translateY(-2px) scale(1.01);
     }
     .footer {
       width: 100%;
-      min-height: 50px;
-      height: 7vh;
-      max-height: 77px;
-      background: #50AFE9;
+      min-height: 48px;
+      background: linear-gradient(90deg, var(--secondary) 60%, var(--primary) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       color: #fff;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 500;
       letter-spacing: 1px;
-      flex-shrink: 0;
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
+      margin-top: 2vh;
+      margin-bottom: 1vh;
+      transition: box-shadow var(--transition);
     }
-    @media (max-width: 1200px) {
+    @media (max-width: 900px) {
       .container {
-        padding: 2vw 2vw 2vw 2vw;
+        padding: 2vw 1vw 2vw 1vw;
+      }
+      .header, .footer {
+        font-size: 1.1rem;
+        min-height: 40px;
+      }
+      .body {
+        font-size: 1rem;
+        min-height: 120px;
+        padding: 3vw 0;
       }
       .main-content {
         flex-direction: column;
         align-items: center;
-        gap: 4vh;
-        margin-top: 5vh;
-        margin-bottom: 3vh;
+        gap: 2vh;
       }
       .column {
         max-width: 100%;
@@ -174,56 +214,31 @@
         margin: 0 0.5vw;
       }
       .card {
-        height: 30vh;
-        min-height: 120px;
+        min-height: 100px;
         padding: 3vw 2vw;
-      }
-    }
-    @media (max-width: 900px) {
-      .container {
-        padding: 1vw 1vw 1vw 1vw;
-      }
-      .header, .footer {
-        font-size: 1.2rem;
-        min-height: 40px;
-        height: 8vw;
-        max-height: 60px;
-      }
-      .body {
-        font-size: 1rem;
-        min-height: 120px;
-      }
-      .section-title, .profile-page {
-        font-size: 1.3rem;
-      }
-      .card {
-        font-size: 1rem;
-        min-height: 80px;
-        padding: 2vw 1vw;
       }
     }
     @media (max-width: 600px) {
       .container {
         min-width: 0;
-        padding: 0.5vw 0.5vw 0.5vw 0.5vw;
+        padding: 1vw 0.5vw 1vw 0.5vw;
       }
       .header, .footer {
         font-size: 1rem;
         min-height: 32px;
-        height: 10vw;
-        max-height: 48px;
       }
       .body {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         min-height: 80px;
+        padding: 2vw 0;
       }
-      .section-title, .profile-page {
+      .section-title {
         font-size: 1.1rem;
       }
       .card {
-        font-size: 0.9rem;
-        min-height: 40px;
-        padding: 1vw 0.5vw;
+        font-size: 0.95rem;
+        min-height: 60px;
+        padding: 2vw 1vw;
       }
     }
   </style>
@@ -231,25 +246,22 @@
 <body>
   <div class="container">
     <div class="header">
-      <span class="header-title">Header</span>
-      <a
-        class="profile-page"
-        href="profile.html"
-      >Profile Page</a>
+      <span class="header-title">Profile Page</span>
+      <a class="profile-page" href="profile.html">Profile Page</a>
     </div>
     <div class="body">
       <div class="main-content">
         <div class="column">
           <div class="section-title">Products</div>
-          <div class="card"></div>
+          <div class="card">Your product cards or content here</div>
         </div>
         <div class="column">
           <div class="section-title">Top Picks</div>
-          <div class="card"></div>
+          <div class="card">Your top picks or content here</div>
         </div>
       </div>
     </div>
-    <div class="footer">Footer</div>
+    <div class="footer">© 2025 Profile Page. All rights reserved.</div>
   </div>
 </body>
 </html>
