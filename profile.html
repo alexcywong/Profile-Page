@@ -2,28 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Profile Page - Modern</title>
+  <title>Profile Page - Metallic Black</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=Inter:700,400|Poppins:400,600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #FE4848;
-      --secondary: #50AFE9;
-      --accent: #A7F99E;
-      --bg: #f7fafd;
-      --card-bg: #fff;
-      --card-shadow: 0 4px 32px rgba(80, 175, 233, 0.08), 0 1.5px 6px rgba(0,0,0,0.03);
-      --radius: 18px;
-      --transition: 0.2s cubic-bezier(.4,0,.2,1);
+      --black: #101014;
+      --dark: #18181c;
+      --metallic: linear-gradient(120deg, #bfc7ce 0%, #43464a 100%);
+      --metallic-gloss: linear-gradient(120deg, #e0e6ed 0%, #43464a 100%);
+      --accent: #00ffe7;
+      --accent2: #5e7cff;
+      --glass: rgba(30, 32, 38, 0.7);
+      --card-bg: rgba(24, 24, 28, 0.85);
+      --card-shadow: 0 8px 32px rgba(0,0,0,0.45), 0 1.5px 6px rgba(0,0,0,0.18);
+      --radius: 20px;
+      --transition: 0.22s cubic-bezier(.4,0,.2,1);
     }
     html, body {
       margin: 0;
       padding: 0;
-      background: var(--bg);
+      background: var(--black);
       width: 100%;
       min-height: 100vh;
       font-family: 'Poppins', 'Inter', Arial, sans-serif;
-      color: #222;
+      color: #f3f6fa;
     }
     body {
       min-height: 100vh;
@@ -45,8 +48,8 @@
     }
     .header {
       width: 100%;
-      min-height: 64px;
-      background: linear-gradient(90deg, var(--primary) 60%, var(--secondary) 100%);
+      min-height: 68px;
+      background: var(--metallic);
       display: flex;
       align-items: center;
       justify-content: flex-end;
@@ -58,7 +61,18 @@
       padding: 0 2vw;
       margin-bottom: 3vh;
       margin-top: 1vh;
-      transition: box-shadow var(--transition);
+      border: 1.5px solid #23242a;
+      transition: box-shadow var(--transition), border var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(0,255,231,0.08) 0%, rgba(94,124,255,0.08) 100%);
+      pointer-events: none;
+      z-index: 0;
     }
     .header-title {
       font-family: 'Poppins', 'Inter', Arial, sans-serif;
@@ -66,11 +80,13 @@
       font-size: 2rem;
       letter-spacing: 1px;
       color: #fff;
+      z-index: 1;
+      text-shadow: 0 2px 12px #23242a;
     }
     .body {
       width: 100%;
       flex: 1 1 auto;
-      background: var(--accent);
+      background: var(--glass);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -81,7 +97,10 @@
       border-radius: var(--radius);
       box-shadow: var(--card-shadow);
       margin-bottom: 3vh;
-      transition: box-shadow var(--transition);
+      border: 1.5px solid #23242a;
+      transition: box-shadow var(--transition), border var(--transition);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
     .profile-card {
       background: var(--card-bg);
@@ -101,78 +120,87 @@
       position: relative;
       overflow: hidden;
       transition: box-shadow var(--transition), transform var(--transition);
+      border: 1.5px solid #23242a;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
     }
     .profile-card::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(120deg, var(--secondary) 0%, transparent 100%);
-      opacity: 0.06;
+      background: var(--metallic-gloss);
+      opacity: 0.08;
       z-index: 0;
       border-radius: var(--radius);
       pointer-events: none;
     }
     .profile-card:hover, .profile-card:focus-within {
-      box-shadow: 0 8px 32px rgba(80, 175, 233, 0.18);
+      box-shadow: 0 8px 32px #00ffe7cc;
       transform: translateY(-2px) scale(1.01);
+      border-color: var(--accent);
     }
     .profile-title {
       font-family: 'Poppins', 'Inter', Arial, sans-serif;
       font-weight: 600;
       font-size: 1.5rem;
-      color: var(--primary);
+      color: var(--accent2);
       margin-bottom: 2vh;
       margin-top: 0;
       text-align: left;
       width: 100%;
       letter-spacing: 0.5px;
       z-index: 1;
+      text-shadow: 0 1px 8px #5e7cff44;
     }
     .profile-info {
       font-family: 'Inter', Arial, sans-serif;
       font-weight: 700;
       font-size: 1.1rem;
-      color: #222;
+      color: #e0e6ed;
       margin-bottom: 1.2vh;
       margin-top: 0;
       text-align: left;
       width: 100%;
       z-index: 1;
+      text-shadow: 0 1px 8px #00ffe744;
     }
     .back-link {
       font-family: 'Poppins', 'Inter', Arial, sans-serif;
       font-weight: 600;
       font-size: 1.1rem;
-      color: var(--secondary);
+      color: var(--accent);
       margin-top: 2.5vh;
       margin-bottom: 0;
       text-align: center;
       width: 100%;
       text-decoration: none;
       cursor: pointer;
-      transition: color var(--transition), background var(--transition);
+      transition: color var(--transition), background var(--transition), border var(--transition);
       display: block;
-      background: rgba(80, 175, 233, 0.08);
-      border-radius: 8px;
+      background: rgba(0,255,231,0.08);
+      border-radius: 10px;
       padding: 0.7em 0;
-      border: none;
+      border: 1.5px solid #23242a;
       outline: none;
+      box-shadow: 0 1px 4px #00ffe7;
     }
     .back-link:hover,
     .back-link:focus {
       color: #fff;
-      background: var(--secondary);
+      background: var(--accent2);
       text-decoration: none;
       outline: none;
+      border-color: var(--accent2);
+      box-shadow: 0 2px 12px #5e7cff;
     }
     .footer {
       width: 100%;
       min-height: 48px;
-      background: linear-gradient(90deg, var(--secondary) 60%, var(--primary) 100%);
+      background: var(--metallic);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
+      color: var(--accent);
       font-size: 1.1rem;
       font-weight: 500;
       letter-spacing: 1px;
@@ -180,7 +208,9 @@
       box-shadow: var(--card-shadow);
       margin-top: 2vh;
       margin-bottom: 1vh;
-      transition: box-shadow var(--transition);
+      border: 1.5px solid #23242a;
+      transition: box-shadow var(--transition), border var(--transition);
+      text-shadow: 0 1px 8px #00ffe7;
     }
     @media (max-width: 900px) {
       .container {
